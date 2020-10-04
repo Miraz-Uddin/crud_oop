@@ -13,7 +13,7 @@
 
 
 	<div class="wrap-table">
-		<a class="btn btn-primary btn-sm" href="views/student/create.php">ADD New</a>
+		<a class="btn btn-primary btn-sm" href="create.php">ADD New</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>All Users</h2>
