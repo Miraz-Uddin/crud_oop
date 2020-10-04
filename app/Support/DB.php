@@ -27,6 +27,32 @@ abstract class DB
     return $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);
   }
 
+  /**
+   * File Upload Managements
+   */
+  public function fileUpload($file, $location='', array $file_type=['jpg','png','jpeg','gif'])
+  {
+    // File Information
+    $file_name = $file['name'];
+    $file_tmp = $file['tmp_name'];
+    $file_size = $file['size'];
+
+    // File Extension
+    $file_array = explode('.',$file_name);
+    $file_extension = strtolower(end($file_array));
+
+    // File Unique Name
+    $name = md5(time().rand()).'.'.$file_extension;
+
+    // File Upload
+    move_uploaded_file($file_tmp, ($location.$name));
+
+    return $name;
+  }
+
+  /**
+   * Data Insert  to  Table
+   */
   protected function insert($table, array $data){
 
     // Make SQL Colum Form Data
