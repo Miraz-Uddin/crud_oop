@@ -25,6 +25,17 @@ class StudentController extends DB
        return '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Student Added Successfull !!!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
      }
    }
+
+   /**
+    * get All values
+    */
+    public function allStudent($order_by)
+    {
+      $data = $this -> all('students',$order_by);
+      if($data){
+        return $data;
+      }
+    }
 }
 
 ?>

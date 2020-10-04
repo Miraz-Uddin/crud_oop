@@ -30,7 +30,7 @@ abstract class DB
   /**
    * File Upload Managements
    */
-  public function fileUpload($file, $location='', array $file_type=['jpg','png','jpeg','gif'])
+  protected function fileUpload($file, $location='', array $file_type=['jpg','png','jpeg','gif'])
   {
     // File Information
     $file_name = $file['name'];
@@ -75,6 +75,18 @@ abstract class DB
       return true;
     }
   }
+
+  /**
+   * Get All Data
+   */
+   protected function all($table, $order_by){
+     // Data Sent to table
+     $sql = "SELECT * FROM $table ORDER BY id='$order_by'";
+     $data = $this->connect()->query($sql);
+     if($data){
+       return $data;
+     }
+   }
 }
 
 
