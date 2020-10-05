@@ -7,12 +7,18 @@ use App\Controllers\StudentController;
 //Class Instance
 $student = new StudentController;
 
+// Data Delete
+if(isset($_GET['delete_id'])){
+	$student_id = $_GET['delete_id'];
+
+	$mess = $student->deleteStudent($student_id);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<base href="/crud_oop/">
+	<!-- <base href="/crud_oop/"> -->
 	<title>Development Area</title>
 	<!-- ALL CSS FILES  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -23,6 +29,12 @@ $student = new StudentController;
 
 
 	<div class="wrap-table">
+		<?php
+
+		if(isset($mess)){
+			echo $mess;
+		}
+		 ?>
 		<a class="btn btn-primary btn-sm" href="create.php">ADD New</a>
 		<div class="card shadow">
 			<div class="card-body">
@@ -53,7 +65,7 @@ $student = new StudentController;
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete_id=<?=$student['id']?>">Delete</a>
 							</td>
 						</tr>
 					<?php  endwhile; ?>

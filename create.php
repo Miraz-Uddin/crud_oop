@@ -13,7 +13,7 @@ $student = new StudentController;
 <head>
 	<meta charset="UTF-8">
 	<title>Development Area</title>
-	<base href="/crud_oop/">
+	<!-- <base href="/crud_oop/"> -->
 	<!-- ALL CSS FILES  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">

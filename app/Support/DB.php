@@ -87,6 +87,25 @@ abstract class DB
        return $data;
      }
    }
+
+  /**
+   * Delete Data
+   */
+   protected function deleteID($table, $student_id){
+
+     // Photo Delete
+     $sql = "SELECT * FROM $table WHERE id='$student_id'";
+     $data = $this->connect()->query($sql);
+     $student_info = $data->fetch_assoc();
+     unlink('assets/uploads/students/'.$student_info['photo']);
+
+     // Data Delete from table
+     $sql = "DELETE FROM $table WHERE id='$student_id'";
+     $data = $this->connect()->query($sql);
+     if($data){
+       return true;
+     }
+   }
 }
 
 

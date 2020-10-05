@@ -22,7 +22,7 @@ class StudentController extends DB
 
      //
      if($data){
-       return '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Student Added Successfull !!!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+       return '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Student Added Successfully !!!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
      }
    }
 
@@ -34,6 +34,17 @@ class StudentController extends DB
       $data = $this -> all('students',$order_by);
       if($data){
         return $data;
+      }
+    }
+
+   /**
+    * Delete Single Student
+    */
+    public function deleteStudent($student_id)
+    {
+      $data = $this -> deleteID('students',$student_id);
+      if($data){
+        return '<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Student Deleted Successfully !!!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
       }
     }
 }
