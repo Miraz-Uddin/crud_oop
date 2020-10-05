@@ -106,6 +106,16 @@ abstract class DB
        return true;
      }
    }
+
+   /**
+    * Show Single Data
+    */
+    protected function find($table, $student_id){
+      $sql = "SELECT * FROM $table WHERE id='$student_id'";
+      $data = $this->connect()->query($sql);
+      $student_info = $data->fetch_assoc();
+      return $student_info;
+    }
 }
 
 

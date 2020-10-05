@@ -35,10 +35,10 @@ if(isset($_GET['delete_id'])){
 			echo $mess;
 		}
 		 ?>
-		<a class="btn btn-primary btn-sm" href="create.php">ADD New</a>
+		<a class="btn btn-primary btn" href="create.php">ADD New Student</a>
 		<div class="card shadow">
 			<div class="card-body">
-				<h2>All Users</h2>
+				<h2>All Students</h2>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -63,7 +63,7 @@ if(isset($_GET['delete_id'])){
 							<td><?=$student['cell']?></td>
 							<td><img src="assets/uploads/students/<?=$student['photo']?>" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
+								<a class="btn btn-sm btn-info" href="show.php?view_id=<?=$student['id']?>">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
 								<a class="btn btn-sm btn-danger" href="?delete_id=<?=$student['id']?>">Delete</a>
 							</td>
